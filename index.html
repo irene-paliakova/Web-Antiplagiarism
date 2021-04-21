@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text AI</title>
+    <link rel="stylesheet" href="src/index.css">
+</head>
+<body class = "main-container">
+
+    <div id="particles-js"></div>
+
+    <main>
+        <h1> text.AI </h1>
+        <p>Intelligent App for text processing</p>
+        <div class = "main-content"> 
+            <form action="#" method="post">
+                <textarea rows="10" cols="45" name="value" id="value" autofocus required placeholder = "Please, enter your text here..." wrap ="soft"></textarea>
+                <div class = "selection">
+                    <select>
+                        <option>Uniqueness</option>
+                        <option>Repetition</option>
+                        <option>Misprint</option>
+                        <option>Validation</option>
+                    </select>
+                    <button type="button" id="send" class="check-button">Check</button>
+                </div>
+              </form>
+            <img src = "src/main.png" alt = "main picture">
+
+        </div>
+
+    </main>
+
+    <div id="result" class="result"></div>
+    
+    <footer>
+        <img src = "src/logo.png" alt = "Dev incubator">
+        <p>Vlad Dubovski, Iryna Poliakova, 2021</p>
+        <div class = "social">
+            <a href = "#">
+                <img src = "src/github.png" alt = "GitHub">
+            </a>
+            <a href = "#">
+                <img src = "src/vk.png" alt = "Vkontakte">
+            </a>
+            <a href = "#">
+                <img src = "src/fb.png" alt = "Facebook">
+            </a>
+            
+        </div>
+    </footer>
+
+
+
+    <script src="https://kit.fontawesome.com/5c6ff8eb8e.js" crossorigin="anonymous"></script>
+
+    <script src="src/particles.js"></script>
+    <script src="src/app.js"></script>
+
+    <script src="src/serverRequest.js"></script>
+    
+</body>
+</html>

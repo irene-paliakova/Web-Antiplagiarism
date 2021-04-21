@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+.main-container {
+   position: relative;
+   width: 100vw;
+   height: 100vh;
+   
+} 
+
+.result {
+    color: #f3f3f3;
+    font-size: 5rem;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0;
+    top: 42%;
+    right: 0;
+    left: 63%;
+    z-index: 999;
+}
+   
+.opacity {
+    opacity: .4;
+}
+   
+#particles-js {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #FB5C7D 0%, #6A81F9 100%), #FB5C7D;
+}
+
+main {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 90px;
+}
+
+main p {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 50px;
+    margin-top: 37px;
+    margin-bottom: 13%;
+}
+
+.main-content {
+    display:flex;
+    justify-content: space-between;
+}
+
+textarea {
+    width: 560px;
+    height: 240px;
+    resize: none;
+}
+
+.selection {
+    display: flex;
+    justify-content: space-between;
+}
+
+select {
+    width: 320px;
+    height: 70px;
+}
+
+.check-button {
+    width: 223px;
+    height: 66px;   
+    background: #A72EF1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.check-button:hover {
+    background: #CF8AF8;
+}
+
+.check-button:active {
+    background: #8C47B5;
+}
+
+footer {
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    max-width: 1180px;
+    background: #ffffff;
+    margin: 0 auto;
+}
+   
