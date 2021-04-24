@@ -19,8 +19,9 @@ a{
 .main-container {
    position: relative;
    width: 100%;
-   height: 100vh;
-    
+   height: 100%;
+   min-height: 100vh; 
+   padding: 0 20px;
 } 
 
 .result {
@@ -51,10 +52,8 @@ a{
 main {
     position: relative;
     max-width: 1180px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 3rem;
-    
+    text-align: center; 
+    margin: 0 auto 50px;  
 }
 
 h1 {
@@ -68,35 +67,40 @@ main p {
     font-weight: 700;
     font-size: 3rem;
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
 }
 
 .main-content {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 12vh;
+    height: 350px;
 }
 
 .main-img {
-    max-width: 560px;
+    width: 50%;
     height: auto;
     object-fit: cover;
-    margin: 5px;
     max-width:fit-content;
+    border-radius: 20px;
+    padding-left: 5px;
 }
 
 form {
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 50%;
+    padding-right: 5px;
 }
 
-textarea {
-    width: 100%;
-    max-width: 30rem;
+textarea {    
+    width: auto;
     height: 240px;
     border-radius: 20px;
     resize: none;
-    margin: 5px;
+    /*margin: 5px;*/
     border: 2px solid #A72EF1;
     padding-left: 25px;
     padding-right: 25px;
@@ -105,9 +109,11 @@ textarea {
     font-size: 18px;
     line-height: 22px;
     resize: vertical;
+    outline: none;
 }
 
 .selection {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -115,18 +121,16 @@ textarea {
 select {
     width: 50%;
     height: 4rem;
-    margin: 5px;
 }
 
 .check-button {
     width: 45%;
     height: 4rem;   
     background: #A72EF1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.082);
     border-radius: 10px;
     color: #ffffff;
     font-size: 2rem;
-    margin: 5px;
 }
 
 .check-button:hover {
@@ -139,17 +143,26 @@ select {
 
 footer {
     position: relative;
-    display:flex;
-    justify-content: space-between;
+    height: 100%;
     max-width: 1180px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     min-height: 90px;
     background: #ffffff;
-    margin: 0 auto;
     border-radius: 10px;
     border: 2px solid #A72EF1;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 3%;
+    padding-right: 3%;
+    
 }
 
 footer img {
@@ -166,7 +179,7 @@ footer p {
     color: #5C5C5C;
 }
 
-@media screen and (max-width: 378px) {
+@media screen and (max-width: 768px) {
     .main-content, .selection, footer {
       flex-direction: column;
       text-align: center;
@@ -180,6 +193,10 @@ footer p {
       .main-img, .check-button, select, textarea, footer {
           width: 95%;
       }
+
+    form {
+        max-width: 95%;
+    }
 
   }
    

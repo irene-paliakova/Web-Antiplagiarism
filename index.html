@@ -5,21 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text AI</title>
-    <link rel="stylesheet" href="src/index.css">
-    
+    <link rel="stylesheet" href="src/index.css">    
 </head>
 <body>
-
-    <div id="particles-js"></div>
-
     <div class="main-container">
-
+        <div id="particles-js"></div>
         <main>
             <h1> text.AI </h1>
             <p>Intelligent App for text processing</p>
             <div class = "main-content"> 
                 <form action="#" method="post">
-                    <textarea name="value" id="value" cols = "1000" rows = "10" autofocus required placeholder = "Inpu text..." wrap ="soft"></textarea>
+                    <textarea name="value" id="value" cols = "1000" rows = "10" autofocus required placeholder = "Input text..." wrap ="soft"></textarea>
                     <div class = "selection">
                         <select>
                             <option>Uniqueness</option>
@@ -29,41 +25,37 @@
                         </select>
                         <button type="button" id="send" class="check-button">Check</button>
                     </div>
-                  </form>
+                </form>
                 <img src = "src/main.png" alt = "main picture" class = "main-img">
     
             </div>
-    
         </main>
         
         <footer>
-            <img src = "src/logo.png" alt = "Dev incubator">
-            <p>Vlad Dubovski, Iryna Poliakova, 2021</p>
-            <div class = "social">
-                <a href = "#">
-                    <img src = "src/github.png" alt = "GitHub">
-                </a>
-                <a href = "#">
-                    <img src = "src/vk.png" alt = "Vkontakte">
-                </a>
-                <a href = "#">
-                    <img src = "src/fb.png" alt = "Facebook">
-                </a>
-                
+            <div class="footer">
+                <img src = "src/logo.png" alt = "Dev incubator">
+                <p>dubikvlad & Iryna Poliakova, 2021</p>
+                <div class = "social">
+                    <a href = "#">
+                        <img src = "src/github.png" alt = "GitHub">
+                    </a>
+                    <a href = "#">
+                        <img src = "src/vk.png" alt = "Vkontakte">
+                    </a>
+                    <a href = "#">
+                        <img src = "src/fb.png" alt = "Facebook">
+                    </a>
+                    
+                </div>
             </div>
         </footer>
-
     </div>
 
     <div id="result" class="result"></div>  
 
-
-
     <script src="https://kit.fontawesome.com/5c6ff8eb8e.js" crossorigin="anonymous"></script>
-
     <script src="src/particles.js"></script>
     <script src="src/app.js"></script>
-
     <script src="src/serverRequest.js"></script>
     
 </body>
