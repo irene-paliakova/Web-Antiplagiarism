@@ -208,7 +208,7 @@ footer {
     
     .main-content{
         height: auto;
-        margin-top: 6vh;
+        margin-top: 50px;
     }
 
     .main-img {
@@ -259,7 +259,8 @@ footer {
     }
 
     footer {
-        height: calc(100vh - 6vh - 331px);
+        height: auto;
+        padding-bottom: 30px;
     }
 }
    
