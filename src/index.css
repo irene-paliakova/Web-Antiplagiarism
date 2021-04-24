@@ -74,13 +74,12 @@ main p {
 .main-content {
     display:flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
     margin: 0 auto;
 }
 
 .main-img {
-    width: 45%;
+    max-width: 560px;
     height: auto;
     object-fit: cover;
     margin: 5px;
@@ -94,11 +93,18 @@ form {
 textarea {
     width: 100%;
     max-width: 30rem;
-    height: 60%;
+    height: 240px;
     border-radius: 20px;
     resize: none;
     margin: 5px;
     border: 2px solid #A72EF1;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 18px;
+    line-height: 22px;
+    resize: vertical;
 }
 
 .selection {
@@ -141,6 +147,9 @@ footer {
     margin: 0 auto;
     border-radius: 10px;
     border: 2px solid #A72EF1;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 footer img {
