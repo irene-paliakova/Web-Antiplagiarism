@@ -12,6 +12,7 @@
 
 a{
     cursor: pointer;
+    text-decoration: none;
 }
 
 
@@ -94,9 +95,10 @@ textarea {
     width: 100%;
     max-width: 30rem;
     height: 60%;
-    border-radius: 10px;
+    border-radius: 20px;
     resize: none;
     margin: 5px;
+    border: 2px solid #A72EF1;
 }
 
 .selection {
@@ -134,10 +136,11 @@ footer {
     display:flex;
     justify-content: space-between;
     max-width: 1180px;
-    min-height: 50px;
+    min-height: 90px;
     background: #ffffff;
     margin: 0 auto;
     border-radius: 10px;
+    border: 2px solid #A72EF1;
 }
 
 footer img {
