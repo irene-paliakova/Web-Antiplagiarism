@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text AI</title>
-    <link rel="stylesheet" href="src/index.css">    
+    <link rel="stylesheet" href="src/index.css">
+    <link rel="stylesheet" href="src/select.css">    
 </head>
 <body>
     <div class="main-container">
@@ -16,6 +17,52 @@
             <div class = "main-content"> 
                 <form action="#" method="post">
                     <textarea name="value" id="value" cols = "1000" rows = "10" autofocus required placeholder = "Input text..." wrap ="soft"></textarea>
+
+                    <div class="application-options selection">
+                        <div class="select__header application-select">
+                            <div class="select__arrow"><span class="arrow-select"></span></div>
+                            <div class="select__current select-value">
+                                <div class="select__icon">
+                                    <img src="src/uniqueness.png" alt="uniqueness">
+                                </div>
+                                <p class="select__text">Uniqueness</p>
+                            </div>
+                            <div class="select__body">
+                                <div class="select__arrow"><span class="arrow-select"></span></div>
+                                <div class="select-option select-value">
+                                    <div class="select__icon">
+                                        <img src="src/uniqueness.png" alt="uniqueness">
+                                    </div>
+                                    <p class="select__text">Uniqueness</p>
+                                </div>
+                                <div class="select-disable select-value">
+                                    <div class="select__icon">
+                                        <img src="src/repetition.png" alt="repetition">
+                                    </div>
+                                    <p class="select__text">Repetition</p>
+                                </div>
+                                <div class="select-disable select-value">
+                                    <div class="select__icon">
+                                        <img src="src/misprint.png" alt="misprint">
+                                    </div>
+                                    <p class="select__text">Misprint</p>
+                                </div>
+                                <div class="select-disable select-value">
+                                    <div class="select__icon">
+                                        <img src="src/validation.png" alt="validation">
+                                    </div>
+                                    <p class="select__text">Validation</p>
+                                </div>
+                            </div>                                
+                        </div>
+
+                        <button type="button" id="send" class="check-button">Check</button>
+                    </div>    
+
+
+
+
+                 <!--
                     <div class = "selection">
                         <select>
                             <option>Uniqueness</option>
@@ -23,8 +70,9 @@
                             <option>Misprint</option>
                             <option>Validation</option>
                         </select>
-                        <button type="button" id="send" class="check-button">Check</button>
+                       
                     </div>
+                 -->   
                 </form>
                 <img src = "src/main.png" alt = "main picture" class = "main-img">
             </div>
@@ -55,6 +103,7 @@
     <script src="https://kit.fontawesome.com/5c6ff8eb8e.js" crossorigin="anonymous"></script>
     <script src="src/particles.js"></script>
     <script src="src/app.js"></script>
+    <script src="src/select.js"></script>
     <script src="src/serverRequest.js"></script>
     
 </body>
