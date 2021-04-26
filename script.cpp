@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
 #include <cgicc/CgiDefs.h>
@@ -53,7 +54,7 @@ int main() {
     name = form("name");
 	
     if (!name.empty()) {
-    	cout << "Yor text original by: " << setprecision(4) << 100 - antiPlagiarism(getDB(), name) << '%' << "\n";
+    	cout << "Yor text original by: " << 100 - antiPlagiarism(getDB(), name) << '%' << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
@@ -93,7 +94,7 @@ double antiPlagiarism(string text, string fragment) {
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
 
-    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);
+    return floor(calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment)*100)/100;
 }
 
 bool isDigit(char c) {
