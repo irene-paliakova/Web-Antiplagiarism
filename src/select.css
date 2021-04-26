@@ -1,0 +1,222 @@
+.select {
+    position: relative;
+  }
+  
+  .select__header {
+    position: relative;
+  }
+  
+  .select__header .select__arrow {
+    right: 16px;
+    top: 50%;
+    margin-top: -15px;
+    position: absolute;
+  }
+  
+  .select__header .select__arrow .arrow-select {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 0, 0, 0);
+  }
+  
+  .select__header .select__arrow .arrow-select::after {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(45deg);
+    right: 11.4px;
+    top: 50%;
+    transition: all 0.3s;
+  }
+  
+  .select__header .select__arrow .arrow-select::before {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(-45deg);
+    right: 2px;
+    top: 50%;
+    transition: all 0.3s;
+  }
+  
+  .select__header.active .select__arrow .arrow-select::after {
+    transform: rotate(-45deg);
+  }
+  
+  .select__header.active .select__arrow .arrow-select::before {
+    transform: rotate(45deg);
+  }
+  
+  .select-value {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    padding-right: 66px;
+    height: 100%;
+  }
+  
+  .select__header {
+    cursor: pointer;
+    background: #ffffff;
+    border: 2px solid #191f82;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+  
+  .select__header:hover {
+    background-color: #7b81e3;
+  }
+  
+  .select__header:hover .select__text {
+    color: #000;
+  }
+  
+  .select__header:active {
+    background-color: #515596;
+  }
+  
+  .select__header:active .select__text {
+    color: #000;
+  }
+  
+  .select__icon {
+    margin-right: 28px;
+  }
+  
+  .select__text {
+    user-select: none;  
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 28px;
+    color: #2b2b2b;
+    transition: all 0.2s;
+    margin-top: 0;
+  }
+  
+  .select__body {
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+    top: -600%;
+    position: absolute;
+    background: #ffffff;
+    border: 2px solid #191f82;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  
+  .select__body .select__arrow {
+    right: 16px;
+    top: 80%;
+    margin-top: 5px;
+    position: absolute;
+  }
+  
+  .select__body .select__arrow .arrow-select {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(218, 19, 19, 0);
+  }
+  
+  .select__body .select__arrow .arrow-select::after {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(-45deg);
+    right: 11.5px;
+    top: 50%;
+    transition: all 0.3s;
+  }
+  
+  .select__body .select__arrow .arrow-select::before {
+    cursor: pointer;
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    background-color: #000;
+    transform: rotate(45deg);
+    right: 2px;
+    top: 50%;
+    transition: all 0.3s;
+  }
+  
+  .select__body.active {
+    opacity: 1;
+    visibility: visible;
+    top: -300%;
+  }
+  
+  .select__body.active .select__arrow .arrow-select::after {
+    transform: rotate(45deg);
+  }
+  
+  .select__body.active .select__arrow .arrow-select::before {
+    transform: rotate(-45deg);
+  }
+  
+  .select-disable {
+    cursor: no-drop;
+    border-bottom: 2px solid #efefef;
+    transition: all 0.2s;
+    opacity: 0.3;
+  }
+  
+  .select-option {
+    cursor: pointer;
+    border-bottom: 2px solid #efefef;
+    transition: all 0.2s;
+  }
+  
+  .select-option:last-child {
+    border-bottom: none;
+  }
+  
+  .select-option:hover {
+    background-color: #efefef;
+  }
+  
+  .select-option:active {
+    background-color: #2b2b2b;
+  }
+  
+  .select-option:active .select__text {
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+      .select__text {
+          font-size: 24px;
+        }
+        .select__body.active {
+            top: -350%;
+            width: 100%;
+        }
+
+        .select__header {
+            width: 100%;
+            min-height: 65px;
+        }
+
+        .select-value {
+            margin-top: 10px;
+        }
+
+
+  }
