@@ -18,6 +18,8 @@ copy src/_normalize.css /var/www/html/src/_normalize.css
 copy src/_zeroing.css /var/www/html/src/_zeroing.css
 copy src/particles.js /var/www/html/src/particles.js
 copy src/app.js /var/www/html/src/app.js 
+copy src/select.js /var/www/html/src/select.js
+copy src/fb.png /var/www/html/src/fb.png
 
 RUN mkdir /var/www/cgi-bin
 copy Makefile /var/www/cgi-bin/
