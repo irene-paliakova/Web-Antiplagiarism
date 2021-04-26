@@ -19,7 +19,16 @@ copy src/_zeroing.css /var/www/html/src/_zeroing.css
 copy src/particles.js /var/www/html/src/particles.js
 copy src/app.js /var/www/html/src/app.js 
 copy src/select.js /var/www/html/src/select.js
+copy src/select.css /var/www/html/src/select.css
 copy src/fb.png /var/www/html/src/fb.png
+copy src/github.png /var/www/html/src/github.png
+copy src/vk.png /var/www/html/src/vk.png
+copy src/logo.png /var/www/html/src/logo.png
+copy src/main.png /var/www/html/src/main.png
+copy src/misprint.png /var/www/html/src/misprint.png
+copy src/repetition.png /var/www/html/src/repetition.png
+copy src/uniqueness.png /var/www/html/src/uniqueness.png
+copy src/validation.png /var/www/html/src/validation.png
 
 RUN mkdir /var/www/cgi-bin
 copy Makefile /var/www/cgi-bin/
