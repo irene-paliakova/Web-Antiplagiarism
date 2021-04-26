@@ -74,7 +74,7 @@ main p {
     justify-content: space-between;
     width: 100%;
     margin: auto;
-    margin-top: 12vh;
+    margin-top: 4.5%;
     height: 350px;
 }
 
@@ -139,6 +139,10 @@ select {
 
 .check-button:active {
     background: #8C47B5;
+}
+
+.check-button.disabled, .check-button.disabled:hover, .check-button.disabled:active {
+    background: #5C5C5C;
 }
 
 footer {
