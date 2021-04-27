@@ -119,6 +119,7 @@ textarea {
     line-height: 22px;
     resize: vertical;
     outline: none;
+    resize: none;
 }
 
 .selection {
