@@ -43,7 +43,7 @@ string replaceEngLetters(string str1);
 
 string toLowerCase(string str1);
 
-
+int main()
 {
     Cgicc form;
     string name;
