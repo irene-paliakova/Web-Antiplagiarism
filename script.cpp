@@ -1,6 +1,6 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
-#include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
 #include <cgicc/CgiDefs.h>
@@ -9,6 +9,7 @@
 #include <cgicc/HTMLClasses.h>
 using namespace std;
 using namespace cgicc;
+using namespace std;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
@@ -19,31 +20,35 @@ using namespace cgicc;
 double antiPlagiarism(string text, string fragment);
 
 int calcNumberOfWordsInString(string str1);
+
 bool isDigit(char c);
 bool isEngLetter(char c);
 bool isSeparator(char character);
 
-string getDB();
 string symbolProcessing(string str1);
-string removeWord(string str, string toBeRemoved);
-string replaceEngLetters(string str1);
-string toLowerCase(string str1);
 
 void extractWordsFromStringIntoArray(string source, string *destination);
-int calcNumberOfMatchingShingles(string fragment[], int wordsInFragment, string text[], int wordsInText);
-double calcPercentageOfCoincidenceShinglesFromTotalNumber(int hitCounter, int totalWords);
 
+int calcNumberOfMatchingShingles(string fragment[], int wordsInFragment, string text[], int wordsInText);
+
+double calcPercentageOfCoincidenceShinglesFromTotalNumber(int hitCounter, int totalWords);
+string getDB();
+string removeWord(string str, string toBeRemoved);
 bool wordsAreEqual(string word1, string words);
 void changeString(string &newString, string &currentWord);
 int lettersCounter(string c);
 
-int main() {
-	setlocale(LC_ALL, "rus");
 
+string replaceEngLetters(string str1);
+
+string toLowerCase(string str1);
+
+
+{
     Cgicc form;
     string name;
 
-        cout << "Content-type:text/html\r\n\r\n";
+    cout << "Content-type:text/html\r\n\r\n";
     cout << "<html>\n";
     cout << "<head>\n";
     cout << "<title>Ggi Server</title>\n";
@@ -52,9 +57,8 @@ int main() {
     cout << "<p>";
     
     name = form("name");
-	
     if (!name.empty()) {
-    	cout << 100 - antiPlagiarism(getDB(), name) << "\n";
+    	cout << << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
@@ -94,7 +98,19 @@ double antiPlagiarism(string text, string fragment) {
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
 
-    return floor(calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment)*100)/100;
+    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);
+}
+
+string getDB(){
+	std::ifstream in("db.txt");
+
+    string dbText = "", s1;
+    while (getline(in, s1))
+    	dbText += s1;
+  
+    in.close();
+    
+    return dbText;
 }
 
 bool isDigit(char c) {
@@ -288,16 +304,4 @@ void changeString(string &newString, string &currentWord)
 		newString += ' ' + currentWord;
 		currentWord = "";
 	}
-}
-
-string getDB(){
-	std::ifstream in("db.txt");
-
-    string dbText = "", s1;
-    while (getline(in, s1))
-    	dbText += s1;
-  
-    in.close();
-    
-    return dbText;
 }
