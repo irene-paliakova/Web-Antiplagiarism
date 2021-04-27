@@ -58,7 +58,7 @@ int main()
     
     name = form("name");
     if (!name.empty()) {
-    	cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
+    	cout << 100 - antiPlagiarism(getDB(), name) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
@@ -179,16 +179,18 @@ bool isEngLetter(char c)
 }
 
 string toLowerCase(string str1) {
-
+    string newString = "";
     for(int i = 0; str1[i]; i++) {
         if(str1[i] >= 'А' and str1[i] <= 'Я') {
-            str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
+            newString += str1[i] + NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        if(str1[i] == 'Ё') {
-            str1[i] = 'ё';
+        else if(str1[i] == 'Ё') {
+            newString += 'ё';
         }
+        else 
+            newString += str1[i];
     }
-    return str1;  
+    return newString;  
 }
 
 
