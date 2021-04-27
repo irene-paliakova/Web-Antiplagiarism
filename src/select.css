@@ -4,6 +4,7 @@
   
   .select__header {
     position: relative;
+    width: 51%;
   }
   
   .select__header .select__arrow {
@@ -20,7 +21,7 @@
     height: 30px;
     background-color: rgba(255, 0, 0, 0);
   }
-  
+
   .select__header .select__arrow .arrow-select::after {
     cursor: pointer;
     content: "";
@@ -67,7 +68,7 @@
   .select__header {
     cursor: pointer;
     background: #ffffff;
-    border: 2px solid #191f82;
+    border: 2px solid #A72EF1;;
     box-sizing: border-box;
     border-radius: 10px;
     transition: all 0.2s;
@@ -219,4 +220,10 @@
         }
 
 
+  }
+
+  @media screen  and (max-width: 1100px) {
+    .select__current .select__text {
+      overflow: hidden;
+    }
   }
