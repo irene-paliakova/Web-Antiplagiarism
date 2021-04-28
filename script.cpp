@@ -3,6 +3,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cmath>
 //#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
