@@ -46,8 +46,8 @@ string toLowerCase(string str1);
 
 int main()
 {
-	SetConsoleCP(1251);       // Set Cyrillic encoding console input
-    SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
+	//SetConsoleCP(1251);       // Set Cyrillic encoding console input
+    //SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
         
     Cgicc form;
     string name;
