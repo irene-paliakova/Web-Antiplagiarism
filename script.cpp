@@ -3,7 +3,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <Windows.h>
+#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
