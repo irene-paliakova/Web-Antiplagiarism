@@ -106,13 +106,13 @@ string antiPlagiarism(string text, string fragment) {
                                               numberOfWordsInText);
 	
     return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);   */
-	string test;
+	/*string test;
 	for (int i = 0; i < 5; i++) {
 		test[i] = text[i];
 		test[i+5] = fragment[i];
 	}
-	test[10] = '\0';
-	return test;
+	test[10] = '\0';*/
+	return concat("TEST", fragment, text);
 }
 
 string getDB(){
