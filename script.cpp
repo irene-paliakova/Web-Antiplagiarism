@@ -3,8 +3,7 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-#include <cmath>
-//#include <Windows.h>
+#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -14,9 +13,9 @@ using namespace cgicc;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
-#define RUS_LETTERS "���������������������"
+#define RUS_LETTERS "АаВСсЕеНКкМмОоРрТХхУу"
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
-#define TO_BE_REMOVED "��� �� �� � � � �  � � �� � �� �� ��� ���� �� � ��� ����� ��� ��� � � �� �� "
+#define TO_BE_REMOVED "чтд кг км м г с а к но и да не или либо же а что чтобы как так т д пр др "
 
 double antiPlagiarism(string text, string fragment);
 
@@ -44,13 +43,11 @@ string replaceEngLetters(string str1);
 
 string toLowerCase(string str1);
 
-int main()
-{
-	//SetConsoleCP(1251);       // Set Cyrillic encoding console input
-    //SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
-        
-    Cgicc form;
+
+int main() {
+	//Cgicc form;
     string name;
+    //string db = "Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности играет важную роль в формировании соответствующий условий активизации. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существенных финансовых и административных условий. Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет оценить значение системы обучения кадров, соответствует насущным потребностям. Значимость этих проблем настолько очевидна, что консультация с широким активом в значительной степени обуславливает создание соответствующий условий активизации. Задача организации, в особенности же дальнейшее развитие различных форм деятельности способствует подготовки и реализации направлений прогрессивного развития";
 
     cout << "Content-type:text/html\r\n\r\n";
     cout << "<html>\n";
@@ -62,14 +59,14 @@ int main()
 	    
     name = form("name");
     if (!name.empty()) {
-    	cout << round(100 - antiPlagiarism(getDB(), name) )<< "\n";
+    	cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
     cout << "</p>\n";
     cout << "</body>\n";
     cout << "</html>\n";
-
+	
     return 0;
 }
 
@@ -101,8 +98,8 @@ double antiPlagiarism(string text, string fragment) {
 
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
-	
-    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);    
+
+    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);
 }
 
 string getDB(){
@@ -116,6 +113,7 @@ string getDB(){
     
     return dbText;
 }
+
 
 bool isDigit(char c) {
     return c >= '0' and c <= '9';
@@ -137,7 +135,7 @@ int calcNumberOfWordsInString(string str1) {
 }
 
 bool isSeparator(char character) {
-    char separators[] = " .,-:;!?()+=/*\n";
+    char separators[] = " .,-:;!?()+=/*";
 
     for (int i = 0; separators[i]; ++i) {
         if (character == separators[i]) {
@@ -185,11 +183,11 @@ bool isEngLetter(char c)
 string toLowerCase(string str1) {
 
     for(int i = 0; str1[i]; i++) {
-        if(str1[i] >= 192 and str1[i] <= 223) {
+        if(str1[i] >= 'А' and str1[i] <= 'Я') {
             str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        if(str1[i] == 168) {
-            str1[i] = 184;
+        if(str1[i] == 'Ё') {
+            str1[i] = 'ё';
         }
     }
     return str1;  
@@ -240,7 +238,7 @@ string removeWord(string str1, string toBeRemoved)
 	string newString = "";
 	
 	for(int i = 0; str1[i] ; i++) {
-		if(str1[i] >= 224 and str1[i] <= 255){
+		if(str1[i] >= 'а' and str1[i] <= 'я'){
 			currentWord += str1[i];
 		} 
 		if(str1[i]== ' '){	
