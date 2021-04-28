@@ -112,8 +112,7 @@ string antiPlagiarism(string text, string fragment) {
 		test[i+5] = fragment[i];
 	}
 	test[10] = '\0';*/
-	string test = "TEST" + fragment + text;
-	return test;
+	return concat("TEST", fragment, text);
 }
 
 string getDB(){
