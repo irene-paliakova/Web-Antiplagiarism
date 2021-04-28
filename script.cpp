@@ -18,7 +18,7 @@ using namespace cgicc;
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
 #define TO_BE_REMOVED "чтд кг км м г с а  в к но и да не или либо же а что чтобы как так т д пр др "
 
-double antiPlagiarism(string text, string fragment,);
+double antiPlagiarism(string text, string fragment);
 
 int calcNumberOfWordsInString(string str1);
 
