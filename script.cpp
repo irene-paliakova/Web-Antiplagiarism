@@ -8,15 +8,14 @@
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
 #include <cgicc/HTMLClasses.h>
-//#include <conio.h>
 using namespace std;
 using namespace cgicc;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
-#define RUS_LETTERS "ĞĞ°Ğ’Ğ¡ÑĞ•ĞµĞĞšĞºĞœĞ¼ĞĞ¾Ğ Ñ€Ğ¢Ğ¥Ñ…Ğ£Ñƒ"
+#define RUS_LETTERS "ÀàÂÑñÅåÍÊêÌìÎîĞğÒÕõÓó"
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
-#define TO_BE_REMOVED "Ñ‡Ñ‚Ğ´ ĞºĞ³ ĞºĞ¼ Ğ¼ Ğ³ Ñ Ğ°  Ğ² Ğº Ğ½Ğ¾ Ğ¸ Ğ´Ğ° Ğ½Ğµ Ğ¸Ğ»Ğ¸ Ğ»Ğ¸Ğ±Ğ¾ Ğ¶Ğµ Ğ° Ñ‡Ñ‚Ğ¾ Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ ĞºĞ°Ğº Ñ‚Ğ°Ğº Ñ‚ Ğ´ Ğ¿Ñ€ Ğ´Ñ€ "
+#define TO_BE_REMOVED "÷òä êã êì ì ã ñ à  â ê íî è äà íå èëè ëèáî æå à ÷òî ÷òîáû êàê òàê ò ä ïğ äğ "
 
 double antiPlagiarism(string text, string fragment);
 
@@ -185,11 +184,11 @@ bool isEngLetter(char c)
 string toLowerCase(string str1) {
 
     for(int i = 0; str1[i]; i++) {
-        if(str1[i] >= 'Ğ' and str1[i] <= 'Ğ¯') {
+        if(str1[i] >= 192 and str1[i] <= 223) {
             str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        if(str1[i] == 'Ğ') {
-            str1[i] = 'Ñ‘';
+        if(str1[i] == 168) {
+            str1[i] = 184;
         }
     }
     return str1;  
@@ -240,7 +239,7 @@ string removeWord(string str1, string toBeRemoved)
 	string newString = "";
 	
 	for(int i = 0; str1[i] ; i++) {
-		if(str1[i] >= 'Ğ°' and str1[i] <= 'Ñ'){
+		if(str1[i] >= 224 and str1[i] <= 255){
 			currentWord += str1[i];
 		} 
 		if(str1[i]== ' '){	
