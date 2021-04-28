@@ -3,19 +3,20 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-#include <Windows.h>
+//#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
 #include <cgicc/HTMLClasses.h>
+#include <conio.h>
 using namespace std;
 using namespace cgicc;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
-#define RUS_LETTERS "¿‡¬—Ò≈ÂÕ ÍÃÏŒÓ–“’ı”Û"
+#define RUS_LETTERS "–ê–∞–í–°—Å–ï–µ–ù–ö–∫–ú–º–û–æ–†—Ä–¢–•—Ö–£—É"
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
-#define TO_BE_REMOVED "˜Ú‰ Í„ ÍÏ Ï „ Ò ‡  ‚ Í ÌÓ Ë ‰‡ ÌÂ ËÎË ÎË·Ó ÊÂ ‡ ˜ÚÓ ˜ÚÓ·˚ Í‡Í Ú‡Í Ú ‰ Ô ‰ "
+#define TO_BE_REMOVED "—á—Ç–¥ –∫–≥ –∫–º –º –≥ —Å –∞  –≤ –∫ –Ω–æ –∏ –¥–∞ –Ω–µ –∏–ª–∏ –ª–∏–±–æ –∂–µ –∞ —á—Ç–æ —á—Ç–æ–±—ã –∫–∞–∫ —Ç–∞–∫ —Ç –¥ –ø—Ä –¥—Ä "
 
 double antiPlagiarism(string text, string fragment,);
 
@@ -184,11 +185,11 @@ bool isEngLetter(char c)
 string toLowerCase(string str1) {
 
     for(int i = 0; str1[i]; i++) {
-        if(str1[i] >= '¿' and str1[i] <= 'ﬂ') {
+        if(str1[i] >= '–ê' and str1[i] <= '–Ø') {
             str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        if(str1[i] == '®') {
-            str1[i] = '∏';
+        if(str1[i] == '–Å') {
+            str1[i] = '—ë';
         }
     }
     return str1;  
@@ -239,7 +240,7 @@ string removeWord(string str1, string toBeRemoved)
 	string newString = "";
 	
 	for(int i = 0; str1[i] ; i++) {
-		if(str1[i] >= '‡' and str1[i] <= 'ˇ'){
+		if(str1[i] >= '–∞' and str1[i] <= '—è'){
 			currentWord += str1[i];
 		} 
 		if(str1[i]== ' '){	
