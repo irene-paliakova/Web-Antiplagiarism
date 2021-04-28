@@ -3,21 +3,21 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
 #include <cgicc/HTMLClasses.h>
 using namespace std;
 using namespace cgicc;
-using namespace std;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
 #define RUS_LETTERS "АаВСсЕеНКкМмОоРрТХхУу"
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
-#define TO_BE_REMOVED "чтд кг км м г с а к но и да не или либо же а что чтобы как так т д пр др "
+#define TO_BE_REMOVED "чтд кг км м г с а  в к но и да не или либо же а что чтобы как так т д пр др "
 
-double antiPlagiarism(string text, string fragment);
+double antiPlagiarism(string text, string fragment,);
 
 int calcNumberOfWordsInString(string str1);
 
@@ -45,6 +45,9 @@ string toLowerCase(string str1);
 
 int main()
 {
+	SetConsoleCP(1251);       // Set Cyrillic encoding console input
+    SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
+        
     Cgicc form;
     string name;
 
@@ -55,10 +58,10 @@ int main()
     cout << "</head>\n";
     cout << "<body>\n";
     cout << "<p>";
-    
+	    
     name = form("name");
     if (!name.empty()) {
-    	cout << 100 - antiPlagiarism(getDB(), name) << "\n";
+    	cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
@@ -97,8 +100,8 @@ double antiPlagiarism(string text, string fragment) {
 
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
-
-    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);
+	
+    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);    
 }
 
 string getDB(){
@@ -133,7 +136,7 @@ int calcNumberOfWordsInString(string str1) {
 }
 
 bool isSeparator(char character) {
-    char separators[] = " .,-:;!?()+=/*";
+    char separators[] = " .,-:;!?()+=/*\n";
 
     for (int i = 0; separators[i]; ++i) {
         if (character == separators[i]) {
@@ -179,18 +182,16 @@ bool isEngLetter(char c)
 }
 
 string toLowerCase(string str1) {
-    string newString = "";
+
     for(int i = 0; str1[i]; i++) {
         if(str1[i] >= 'А' and str1[i] <= 'Я') {
-            newString += str1[i] + NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
+            str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        else if(str1[i] == 'Ё') {
-            newString += 'ё';
+        if(str1[i] == 'Ё') {
+            str1[i] = 'ё';
         }
-        else 
-            newString += str1[i];
     }
-    return newString;  
+    return str1;  
 }
 
 
