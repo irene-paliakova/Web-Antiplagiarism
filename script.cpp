@@ -61,7 +61,7 @@ int main()
 	    
     name = form("name");
     if (!name.empty()) {
-    	cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
+    	cout << round(100 - antiPlagiarism(getDB(), name) )<< "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
