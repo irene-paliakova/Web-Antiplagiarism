@@ -18,7 +18,8 @@ using namespace cgicc;
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
 #define TO_BE_REMOVED "чтд кг км м г с а  в к но и да не или либо же а что чтобы как так т д пр др "
 
-double antiPlagiarism(string text, string fragment);
+//double antiPlagiarism(string text, string fragment); !!!!!!
+string antiPlagiarism(string text, string fragment);
 
 int calcNumberOfWordsInString(string str1);
 
@@ -62,7 +63,8 @@ int main()
 	    
     name = form("name");
     if (!name.empty()) {
-    	cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n";
+	    cout << antiPlagiarism(getDB(), name) << "\n";
+    	//cout << setprecision(4) <<100 - antiPlagiarism(getDB(), name) << "\n"; !!!!!
     } else {
     	cout << "Text is not provided!\n";
     }	
@@ -73,8 +75,9 @@ int main()
     return 0;
 }
 
-double antiPlagiarism(string text, string fragment) {
-    int hitCounter = 0, numberOfWordsInFragment = 0, numberOfWordsInText = 0;
+//double antiPlagiarism(string text, string fragment) {
+string antiPlagiarism(string text, string fragment) {
+   /* int hitCounter = 0, numberOfWordsInFragment = 0, numberOfWordsInText = 0;
 
     fragment = symbolProcessing(fragment);
     text = symbolProcessing(text);
@@ -102,7 +105,14 @@ double antiPlagiarism(string text, string fragment) {
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
 	
-    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);    
+    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);   */
+	string test;
+	for (integer i = 0; i < 5; i++) {
+		test[i] = text[i];
+		test[i+5] = fragment[i];
+	}
+	test[10] = '\0';
+	return test;
 }
 
 string getDB(){
