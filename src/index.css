@@ -34,6 +34,7 @@ a{
     right: 0;
     left: 63%;
     z-index: 999;
+    height: 120px;
 }
    
 .opacity {
