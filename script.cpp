@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <conio.h>
 //#include <Windows.h>
+#include <cmath>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,7 +59,7 @@ int main()
     
     name = form("name");
     if (!name.empty()) {
-    	cout << antiPlagiat(getDB(), name) << "\n";
+    	cout << round(antiPlagiat(getDB(), name)) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
