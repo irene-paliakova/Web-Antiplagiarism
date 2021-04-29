@@ -3,8 +3,6 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
-#include <cmath>
-//#include <Windows.h>
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -14,9 +12,9 @@ using namespace cgicc;
 
 #define N 3
 #define ENG_LETTERS "AaBCcEeHKkMmOoPpTXxYy"
-#define RUS_LETTERS "ÀàÂÑñÅåÍÊêÌìÎîĞğÒÕõÓó"
+#define RUS_LETTERS "Ã€Ã Ã‚Ã‘Ã±Ã…Ã¥ÃÃŠÃªÃŒÃ¬ÃÃ®ÃÃ°Ã’Ã•ÃµÃ“Ã³"
 #define NEED_SYMBOLS_TO_MAKE_LOWERCASE 32
-#define TO_BE_REMOVED "÷òä êã êì ì ã ñ à  â ê íî è äà íå èëè ëèáî æå à ÷òî ÷òîáû êàê òàê ò ä ïğ äğ "
+#define TO_BE_REMOVED "Ã·Ã²Ã¤ ÃªÃ£ ÃªÃ¬ Ã¬ Ã£ Ã± Ã  Ãª Ã­Ã® Ã¨ Ã¤Ã  Ã­Ã¥ Ã¨Ã«Ã¨ Ã«Ã¨Ã¡Ã® Ã¦Ã¥ Ã  Ã·Ã²Ã® Ã·Ã²Ã®Ã¡Ã» ÃªÃ Ãª Ã²Ã Ãª Ã² Ã¤ Ã¯Ã° Ã¤Ã° "
 
 double antiPlagiarism(string text, string fragment);
 
@@ -44,14 +42,11 @@ string replaceEngLetters(string str1);
 
 string toLowerCase(string str1);
 
-int main()
-{
-	//SetConsoleCP(1251);       // Set Cyrillic encoding console input
-    //SetConsoleOutputCP(1251); // Set Cyrillic encoding console output
-        
-    Cgicc form;
-    string name;
 
+int main() {
+	Cgicc form;
+	string name;
+ 
     cout << "Content-type:text/html\r\n\r\n";
     cout << "<html>\n";
     cout << "<head>\n";
@@ -61,15 +56,16 @@ int main()
     cout << "<p>";
 	    
     name = form("name");
+    
     if (!name.empty()) {
-    	cout << round(100 - antiPlagiarism(getDB(), name) )<< "\n";
+    	cout << antiPlagiarism(getDB(), name) << "\n";
     } else {
     	cout << "Text is not provided!\n";
     }	
     cout << "</p>\n";
     cout << "</body>\n";
     cout << "</html>\n";
-
+	
     return 0;
 }
 
@@ -101,8 +97,8 @@ double antiPlagiarism(string text, string fragment) {
 
     hitCounter = calcNumberOfMatchingShingles(wordsFromFragment, numberOfWordsInFragment, wordsFromText,
                                               numberOfWordsInText);
-	
-    return calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);    
+
+    return 100 - calcPercentageOfCoincidenceShinglesFromTotalNumber(hitCounter, numberOfWordsInFragment);
 }
 
 string getDB(){
@@ -116,6 +112,7 @@ string getDB(){
     
     return dbText;
 }
+
 
 bool isDigit(char c) {
     return c >= '0' and c <= '9';
@@ -137,7 +134,7 @@ int calcNumberOfWordsInString(string str1) {
 }
 
 bool isSeparator(char character) {
-    char separators[] = " .,-:;!?()+=/*\n";
+    char separators[] = " .,-:;!?()+=/*";
 
     for (int i = 0; separators[i]; ++i) {
         if (character == separators[i]) {
@@ -185,11 +182,11 @@ bool isEngLetter(char c)
 string toLowerCase(string str1) {
 
     for(int i = 0; str1[i]; i++) {
-        if(str1[i] >= 192 and str1[i] <= 223) {
+        if(str1[i] >= 'Ã€' and str1[i] <= 'ÃŸ') {
             str1[i] += NEED_SYMBOLS_TO_MAKE_LOWERCASE; 
         }
-        if(str1[i] == 168) {
-            str1[i] = 184;
+        if(str1[i] == 'Â¨') {
+            str1[i] = 'Â¸';
         }
     }
     return str1;  
@@ -240,7 +237,7 @@ string removeWord(string str1, string toBeRemoved)
 	string newString = "";
 	
 	for(int i = 0; str1[i] ; i++) {
-		if(str1[i] >= 224 and str1[i] <= 255){
+		if(str1[i] >= 'Ã ' and str1[i] <= 'Ã¿'){
 			currentWord += str1[i];
 		} 
 		if(str1[i]== ' '){	
