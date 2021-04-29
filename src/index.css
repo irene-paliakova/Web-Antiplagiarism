@@ -282,5 +282,16 @@ footer {
         height: auto;
         padding-bottom: 30px;
     }
+    .result {
+        color: #fff;
+        font-size: 4rem;
+        font-weight: 400;
+        position: absolute;
+        bottom: 0;
+        top: 150px;
+        right: 0;
+        left: 0;
+        z-index: 999;
+    }
 }
    
