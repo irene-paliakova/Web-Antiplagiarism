@@ -336,8 +336,13 @@ double calcPlagiatRate(char textSplitted[][N_WORD], char fragmentSplitted[][N_WO
 
         shinglesTotal++;
     }
+	
+	if (shinglesTotal == 0) 
+		plagiat = 100;
+	else
+		plagiat = 100 - ((double)shinglesEquial / (double)shinglesTotal * 100);
 
-    plagiat = 100 - ((double)shinglesEquial / (double)shinglesTotal * 100);
+    
 
     //cout << "Total: " << shinglesTotal << endl;
     //cout << "Eq: " << shinglesEquial << endl;
